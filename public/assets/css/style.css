@@ -1,0 +1,146 @@
+
+
+.container {
+    display: flex;
+    /* background-color: bisque; */
+    height: 90vh;
+    flex-direction: row;
+    justify-content: space-around;
+
+
+}
+.header{
+ display: flex;
+    justify-content: center;
+    margin-top: 23px;
+    font-size: 40px;
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
+    
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: rgb(158, 226, 143); */
+    background-image: url(/assets/images/background.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin:100px;
+}
+
+.upload {
+    width: 100%;
+    height: 270px;
+    background-color: rgba(245, 245, 220, 0.249);
+    margin: 30px;
+    border-radius: 20px;
+    border:2px solid rgb(182, 182, 182);
+    
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 1px 8px 1px #131313; 
+}
+.upload:hover{
+    background-color: rgb(205, 205, 205);
+    border: 5px solid rgb(0, 0, 0);
+}
+.upload-img{
+    /* display: flex; */
+    height: 100%;
+    width: 100%;
+}
+.file-choose{
+    display: flex;
+    width: 100%;
+}
+/* .input-file{
+    display: flex;
+    width: 100%;
+    font-size: 23px;
+} */
+
+.center {
+    /* background-color: brown; */
+    /* width: 100px; */
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin: 100px; */
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px;
+
+}
+
+.button {
+    /* background-color: rgb(203, 83, 113); */
+    /* padding: 100px;  */
+    height: 30px;
+    width: 100%;
+    text-decoration: none;
+
+    border-radius: 30px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    cursor: pointer;
+    border: 1px solid rgb(74, 74, 74);
+    box-shadow: 5px 1px 8px 1px #131313; 
+    color: black;
+
+}
+
+.button:hover{
+    background-color: black;
+    color: white;
+}
+
+
+.process-btn {
+    
+    font-size: 100px;
+}
+
+.bg-red{
+    background-color: red;
+}
+.bg-green{
+    background-color: green;
+}
+.bg-yellow{
+    background-color: yellow;
+}
+.bg-blue{
+    background-color: blue;
+}
+
+.center-content{
+    width: 260px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

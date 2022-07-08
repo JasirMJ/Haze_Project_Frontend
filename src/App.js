@@ -16,6 +16,7 @@ function App() {
   }
 
   const handleSubmit = (e) => {
+    setImageProcessUrl('assets/images/processimage.png');
     setloading(true);
 
 
@@ -28,36 +29,35 @@ function App() {
 
     var config = {
       method: 'post',
-      url: 'http://192.168.220.136/dehaze/',
+      url: 'http://localhost:8000/api/v1/dehaze/',
       data: data
     };
 
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+      if (response.data.status) {
+        let dehaze = response.data.dehazed
+        let img = "http://localhost:8000/"
+        console.log("img is : ",img+dehaze)
+        setImageProcessUrl(img+dehaze);
+        // setImageProcessUrl(imageUploadUrl);
+      }
+      else {
+        alert(response.data.message);
+      }
 
-    setTimeout(function () {
-      //your code to be executed after 1 second
-      axios(config)
-        .then(function (response) {
-          console.log(JSON.stringify(response.data));
-          if (response.data.Status) {
-            // setImageProcessUrl(response.data.data);
-            setImageProcessUrl(imageUploadUrl);
-          }
-          else {
-            alert(response.data.Message);
-          }
-
-        })
-        .catch(function (error) {
-          console.log(error);
-          // setImageProcessUrl(imageUploadUrl);
-          setImageProcessUrl('assets/images/dehaze.png');
+    })
+    .catch(function (error) {
+      console.log(error);
+      // setImageProcessUrl(imageUploadUrl);
+      setImageProcessUrl('assets/images/dehaze.png');
 
 
-        }).finally(function () {
-          setloading(false);
-        })
+    }).finally(function () {
+      setloading(false);
+    })
 
-    }, 1000);
 
 
   }
@@ -71,7 +71,7 @@ function App() {
         <div className="container">
           <div className="left">
             <div className="upload">
-              <img className="upload-img" src={imageUploadUrl} />
+              <img className="upload-img" src={imageUploadUrl} onChange={new Date()} />
             </div>
             <div className="file-choose ">
               <input className=" input-file button" type="file" onChange={handleFileChange} />
@@ -94,9 +94,9 @@ function App() {
           </div>
           <div className="right">
             <div className="upload">
-              <img className="upload-img" src={imageProcessUrl} />
+              <img onChange={new Date()} className="upload-img" src={imageProcessUrl+"?"+new Date()}  />
             </div>
-            <a href={imageProcessUrl} download className="button">Download</a>
+            <a href={imageProcessUrl} target="_blank" download="dehazed" className="button">Download</a>
           </div>
         </div>
       </div>
